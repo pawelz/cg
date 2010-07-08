@@ -12,6 +12,13 @@ Installation
     sudo make install
     sudo make init
 
+Requirements
+============
+
+cg does require git-core >= 1.7. That means if you are and debian
+ancient^Wstable, you need to isntall git from backports:
+    deb http://www.backports.org/debian lenny-backports main contrib non-free
+
 Working with cg
 ===============
 
