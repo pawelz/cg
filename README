@@ -1,0 +1,44 @@
+cg(1)
+=====
+
+About
+=====
+
+cg is simple tool that helps to keep machine configuration in git repository.
+
+Installation
+============
+
+sudo make install
+sudo make init
+
+Working with cg
+===============
+
+There are always at least two branches in cg repository:
+* `master`
+* `deploy`
+
+deploy is the branch that is actually checked out on the server. You should
+never checkout master or any other branch into / directory of the server.
+You should never push to this branch.
+
+So, if you want to modify some files, you have two options:
+* modify them directly on the server
+  - modify file
+  - cg add it
+  - cg commit it directly to the deploy branch
+  - don't forget to git fetch && git merge deploy in repo clones
+* push it from your workstation:
+  - modify file in your local working copy
+  - git add it
+  - git commit it to the master branch (or any other than deploy)
+  - git push it
+  - login onto server as root and cg merge master
+
+Copyright & License
+===================
+
+© 2010 by Paweł Zuzelski <pawelz@pld-linux.org>
+License: Just do what the fuck you want to.
+Or see license details here: http://sam.zoy.org/wtfpl/COPYING
