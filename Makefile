@@ -14,3 +14,8 @@ init:
 	cg config --add core.excludesfile /etc/cg/ignore
 	cg config --add core.sharedrepository true
 	cg config --add core.bare true
+	cg add /etc/cg/ignore
+	cg commit -m "Initial"
+	cg branch deploy
+	cg checkout deploy
+	echo "*** SUCCESS ***"
