@@ -16,6 +16,7 @@ Working with cg
 ===============
 
 There are always at least two branches in cg repository:
+
 * `master`
 * `deploy`
 
@@ -24,6 +25,7 @@ never checkout master or any other branch into / directory of the server.
 You should never push to this branch.
 
 So, if you want to modify some files, you have two options:
+
 * modify them directly on the server
   - modify file
   - cg add it
