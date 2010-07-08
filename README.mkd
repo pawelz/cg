@@ -9,8 +9,8 @@ cg is a simple tool that helps to keep machine configuration in git repository.
 Installation
 ============
 
-sudo make install
-sudo make init
+    sudo make install
+    sudo make init
 
 Working with cg
 ===============
@@ -28,14 +28,14 @@ So, if you want to modify some files, you have two options:
 
 * modify them directly on the server
   - modify file
-  - cg add it
-  - cg commit it directly to the deploy branch
-  - don't forget to git fetch && git merge deploy in repo clones
+  - `cg add` it
+  - `cg commit` it directly to the deploy branch
+  - don't forget to `git fetch && git merge deploy` in repo clones
 * push it from your workstation:
   - modify file in your local working copy
-  - git add it
-  - git commit it to the master branch (or any other than deploy)
-  - git push it
+  - `git add` it
+  - `git commit` it to the master branch (or any other than deploy)
+  - `git push` it
   - login onto server as root and cg merge master
 
 Copyright & License
