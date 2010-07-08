@@ -1,0 +1,26 @@
+#!/bin/sh
+
+ROOTRELPATH=$(pwd | sed 's/[^/]\+/../g')/
+ROOTRELPATH=${ROOTRELPATH#/}
+ROOTRELPATH=${ROOTRELPATH#/}
+export GIT_DIR=/var/lib/cg
+export GIT_WORK_TREE="/"
+export GIT_CEILING_DIRECTORIES=/tmp:/var/spool:/var/cache:/home
+
+# opt parsing
+while [ "$1" == "-${1#-}" ]; do
+	GITOPTS="$GITOPTS $1"
+	shift
+done
+
+GITCOMMAND="$1"
+shift
+
+while [ "$1" ]; do
+	O=${1#/}
+	[ "$O" != "$1" ] && O=$ROOTRELPATH$O
+	GITCMDOPTS="$GITCMDOPTS $O"
+	shift
+done
+
+exec git $GITOPTS $GITCOMMAND $GITCMDOPTS
