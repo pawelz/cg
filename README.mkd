@@ -9,6 +9,11 @@ cg is a simple tool that helps to keep machine configuration in git repository.
 Installation
 ============
 
+	groupadd cg
+
+cg group will have full read access to configuration files in cg repository.
+Only root will have write access.
+
     sudo make install
     sudo make init
 
