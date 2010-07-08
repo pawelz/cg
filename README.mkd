@@ -4,7 +4,7 @@ cg(1)
 About
 =====
 
-cg is simple tool that helps to keep machine configuration in git repository.
+cg is a simple tool that helps to keep machine configuration in git repository.
 
 Installation
 ============
