@@ -1,7 +1,7 @@
 all: install
 
 check:
-	if ! getent group cg 2> /dev/null; than echo "ERROR: cg group does not exist" >&2; false; fi
+	if ! getent group cg 2> /dev/null; then echo "ERROR: cg group does not exist" >&2; false; fi
 
 install: check
 	install -d -m750 /etc/cg
