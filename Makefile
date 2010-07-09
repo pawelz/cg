@@ -3,7 +3,7 @@ all: install
 check:
 	if ! getent group cg 2> /dev/null; echo "ERROR: cg group does not exist" >&2; false; fi
 
-install check:
+install: check
 	install -d -m750 /etc/cg
 	install -d -m770 /var/lib/cg
 	install -m750 cg /usr/local/bin/cg
