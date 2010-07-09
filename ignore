@@ -2,3 +2,6 @@
 *.new
 *.rpmnew
 *.rpmsave
+etc/shadow
+etc/ssh/ssh_host_?sa_key*
+etc/ssh/moduli
