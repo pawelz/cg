@@ -4,10 +4,10 @@ check:
 	if ! getent group cg 2> /dev/null; then echo "ERROR: cg group does not exist" >&2; false; fi
 
 install: check
-	install -d -m750 /etc/cg
-	install -d -m770 /var/lib/cg
-	install -m750 cg /usr/local/bin/cg
-	install -m640 ignore /etc/cg/ignore
+	install -d -m750 -gcg /etc/cg
+	install -d -m770 -gcg /var/lib/cg
+	install -m750 -gcg cg /usr/local/bin/cg
+	install -m640 -gcg ignore /etc/cg/ignore
 
 init:
 	cg init
