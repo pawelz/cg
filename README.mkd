@@ -18,8 +18,8 @@ Create cg group, and add some users to this group.
 cg group will have full read access to configuration files in cg repository.
 Only root will have write access.
 
-    sudo make install
-    sudo make init
+	sudo make install
+	sudo make init
 
 Requirements
 ============
@@ -27,7 +27,7 @@ Requirements
 cg does require git-core >= 1.7. That means if you are on debian
 ancient^Wstable, you need to isntall git from backports:
 
-    echo 'deb http://www.backports.org/debian lenny-backports main contrib non-free' >> /etc/apt/sources.list
+	echo 'deb http://www.backports.org/debian lenny-backports main contrib non-free' >> /etc/apt/sources.list
 	apt-get update
 	apt-get -t lenny-backports install git-core
 
