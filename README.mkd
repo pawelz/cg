@@ -64,6 +64,18 @@ You can clone cg repo on your workstation using following git url:
 
 User must be a memeber of cg group.
 
+If you already keep your serrver configuration under simple git repo in /root
+you can import it to cg this way:
+
+	git clone user@server:/var/lib/cg
+	git remote add rootrepo user@server:/
+	git fetch rootrepo
+	git merge rootrepo/master
+	git branch deploy
+	git push -f origin
+	git branch -d deploy
+	git remote rm rootrepo
+
 Copyright & License
 ===================
 
