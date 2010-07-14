@@ -9,11 +9,7 @@ cg is a simple tool that helps to keep machine configuration in git repository.
 Installation
 ============
 
-Create cg group, and add some users to this group.
-
-	groupadd cg
-	usermod -Gcg trusted_user
-	usermod -Gcg other_trusted_user
+Create cg group, and add your trusted users to this group.
 
 cg group will have full access to configuration files in cg repository.
 Remeber that only root has full access to $GIT_WORK_TREE, so you need to be
