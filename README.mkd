@@ -54,11 +54,11 @@ So, if you want to modify some files, you have two options:
   - `git push` it
   - login onto server as root and cg merge master
 
-You can clone cg repo on your workstation using following git url:
+You can clone cg repo on your workstation using following:
 
-	git clone user@server:/var/lib/cg
+	git clone user@server:/var/lib/cg -b master server
 
-User must be a memeber of cg group.
+Remember, that `user` must be a memeber of `cg` group.
 
 If you already keep your serrver configuration under simple git repo in /root
 you can import it to cg this way:
