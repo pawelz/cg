@@ -72,6 +72,31 @@ you can import it to cg this way:
 	git branch -d deploy
 	git remote rm rootrepo
 
+Troubleshooting
+===============
+
+Permission errors
+-----------------
+
+    $ git push -f cg
+	Counting objects: 102, done.
+	Delta compression using up to 2 threads.
+	Compressing objects: 100% (73/73), done.
+	fatal: Unable to create temporary file: Permission denied
+	Writing objects: 100% (100/100), 15.13 KiB, done.
+	Total 100 (delta 22), reused 9 (delta 0)
+	error: unpack failed: index-pack abnormal exit
+	To server.example.com:/var/lib/cg
+	 ! [remote rejected] deploy -> deploy (n/a (unpacker error))
+	 ! [remote rejected] master -> master (n/a (unpacker error))
+	error: failed to push some refs to 'server.example.com:/var/lib/cg'
+
+This is typical permission error. Make sure that you have full permission to
+/var/lib/cg on server.example.com. Try:
+
+    chmod -R g+rwX /var/lib/cg
+	chgrp -R cg /var/lib/cg
+
 Copyright & License
 ===================
 
