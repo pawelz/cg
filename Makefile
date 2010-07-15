@@ -18,4 +18,6 @@ init:
 	cg commit -m "Initial"
 	cg branch deploy
 	cg checkout deploy
+	chgrp -R cg /var/lib/cg
+	chmod -R g+rwX /var/lib/cg
 	echo "*** SUCCESS ***"
