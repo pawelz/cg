@@ -5,20 +5,6 @@ check:
 
 install: check
 	install -d -m750 -gcg /etc/cg
-	install -d -m770 -gcg /var/lib/cg
 	install -m750 -gcg cg /usr/local/bin/cg
 	ln -s /usr/local/bin/cg /usr/local/bin/vcg
 	install -m640 -gcg ignore /etc/cg/ignore
-
-init:
-	cg init
-	cg config --add core.excludesfile /etc/cg/ignore
-	cg config --add core.sharedrepository true
-	cg config --add core.bare true
-	cg add /etc/cg/ignore
-	cg commit -m "Initial"
-	cg branch deploy
-	cg checkout deploy
-	chgrp -R cg /var/lib/cg
-	chmod -R g+rwX /var/lib/cg
-	echo "*** SUCCESS ***"
