@@ -12,11 +12,39 @@
 ROOTRELPATH=$(pwd | sed 's/[^/]\+/../g')/
 ROOTRELPATH=${ROOTRELPATH#/}
 ROOTRELPATH=${ROOTRELPATH#/}
-export GIT_DIR=/var/lib/cg
-export GIT_WORK_TREE="/"
-export GIT_CEILING_DIRECTORIES=/tmp:/var/spool:/var/cache:/home
+GIT_DIR=/var/lib/cg
+GIT_WORK_TREE="/"
+GIT_CEILING_DIRECTORIES=/tmp:/var/spool:/var/cache:/home
 
 # opt parsing
+if [ "$(basename $0)" == "vcg" ]; then
+	VSERVERMODE=true
+	for I in /usr/lib/util-vserver/util-vserver-vars /usr/lib64/util-vserver/util-vserver-vars /usr/local/lib/util-vserver/util-vserver-vars /usr/local/lib64/util-vserver/util-vserver-vars
+	do
+		if [ -r "$I" ]; then
+			. $I
+			break
+		fi
+	done
+	if ! [ "$_LIB_FUNCTIONS" ]; then
+		echo "ERROR: vcg: util-vserver not found." >&2
+		exit 1
+	fi
+	. $_LIB_FUNCTIONS
+	if ! [ "$1" ]; then
+		echo "ERROR: vcg: missing vserver name." >&2
+		exit 1
+	fi
+	vserver=$1
+	shift
+	_pkgSetVarsBase
+
+	GIT_WORK_TREE=$VDIR
+	GIT_DIR=$BASEDIR/apps/cg
+fi
+export GIT_DIR
+export GIT_WORK_TREE
+export GIT_CEILING_DIRECTORIES
 while [ "$1" == "-${1#-}" ]; do
 	GITOPTS="$GITOPTS $1"
 	shift
