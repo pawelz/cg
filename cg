@@ -52,6 +52,12 @@ export GIT_WORK_TREE
 export GIT_CEILING_DIRECTORIES
 ### }}}
 
+### Helper functions {{{
+die() {
+	echo "$@" >&2
+	exit 1
+}
+### }}}
 ### Parse global opts {{{
 while [ "$1" == "-${1#-}" ]; do
 	GITOPTS="$GITOPTS $1"
