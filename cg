@@ -67,7 +67,8 @@ initrepo() {
 	git config --add core.excludesfile /etc/cg/ignore
 	git config --add core.sharedrepository true
 	git config --add core.bare true
-	git add /etc/cg/ignore
+	echo $GIT_DIR > $GIT_WORK_TREE/.cg
+	git add $GIT_WORK_TREE/.cg
 	git commit -m "Initial"
 	git branch deploy
 	git checkout deploy
