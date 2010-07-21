@@ -58,9 +58,35 @@ die() {
 	exit 1
 }
 ### }}}
+
+### Functions {{{
+initrepo() {
+	[ -d "$GIT_DIR" ] && die "GIT_DIR=$GIT_DIR already exists."
+	install -d -m770 -gcg $GIT_DIR
+	git init
+	git config --add core.excludesfile /etc/cg/ignore
+	git config --add core.sharedrepository true
+	git config --add core.bare true
+	git add /etc/cg/ignore
+	git commit -m "Initial"
+	git branch deploy
+	git checkout deploy
+	chgrp -R cg $GIT_DIR
+	chmod -R g+rwX $GIT_DIR
+}
+### }}}
+
 ### Parse global opts {{{
 while [ "$1" == "-${1#-}" ]; do
-	GITOPTS="$GITOPTS $1"
+	case "$1" in
+		'--init')
+			initrepo
+			exit
+			;;
+		*)
+			GITOPTS="$GITOPTS $1"
+			;;
+	esac
 	shift
 done
 ### }}}
