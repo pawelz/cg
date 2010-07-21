@@ -7,6 +7,7 @@ install: check
 	install -d -m750 -gcg /etc/cg
 	install -d -m770 -gcg /var/lib/cg
 	install -m750 -gcg cg /usr/local/bin/cg
+	ln -s /usr/local/bin/cg /usr/local/bin/vcg
 	install -m640 -gcg ignore /etc/cg/ignore
 
 init:
