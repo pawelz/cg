@@ -15,7 +15,7 @@
 ROOTRELPATH=$(pwd | sed 's/[^/]\+/../g')/
 ROOTRELPATH=${ROOTRELPATH#/}
 ROOTRELPATH=${ROOTRELPATH#/}
-GIT_DIR=/var/lib/cg
+GIT_DIR=/var/lib/cg/root
 GIT_WORK_TREE="/"
 GIT_CEILING_DIRECTORIES=/tmp:/var/spool:/var/cache:/home
 ### }}}
@@ -44,7 +44,7 @@ if [ "$(basename $0)" == "vcg" ]; then
 	_pkgSetVarsBase
 
 	GIT_WORK_TREE=$VDIR
-	GIT_DIR=$BASEDIR/apps/cg
+	GIT_DIR=/var/lib/cg/vservers/$vserver
 fi
 ### }}}
 

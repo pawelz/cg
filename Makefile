@@ -6,5 +6,7 @@ check:
 install: check
 	install -d -m750 -gcg /etc/cg
 	install -m750 -gcg cg /usr/local/bin/cg
+	install -d -m750 -gcg /var/lib/cg
+	install -d -m750 -gcg /var/lib/cg/vservers
 	ln -s /usr/local/bin/cg /usr/local/bin/vcg
 	install -m640 -gcg ignore /etc/cg/ignore
