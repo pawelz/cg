@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bin/sh
 
 # Copyright © 2010 by Paweł Zuzelski <pawelz@pld-linux.org>
 # Author: Paweł Zuzelski <pawelz@pld-linux.org>
@@ -23,27 +23,13 @@ GIT_CEILING_DIRECTORIES=/tmp:/var/spool:/var/cache:/home
 ### Vservers support {{{
 if [ "$(basename $0)" == "vcg" ]; then
 	VSERVERMODE=true
-	for I in /usr/lib/util-vserver/util-vserver-vars /usr/lib64/util-vserver/util-vserver-vars /usr/local/lib/util-vserver/util-vserver-vars /usr/local/lib64/util-vserver/util-vserver-vars
-	do
-		if [ -r "$I" ]; then
-			. $I
-			break
-		fi
-	done
-	if ! [ "$_LIB_FUNCTIONS" ]; then
-		echo "ERROR: vcg: util-vserver not found." >&2
-		exit 1
-	fi
-	. $_LIB_FUNCTIONS
-	if ! [ "$1" ]; then
-		echo "ERROR: vcg: missing vserver name." >&2
-		exit 1
-	fi
+
 	vserver="$1"
 	shift
-	_pkgSetVarsBase
 
-	GIT_WORK_TREE="$VDIR"
+	# Assume that Vservers are installed in /vserver. Better solutions will be
+	# implemented later.
+	GIT_WORK_TREE="/vservers/$vserver"
 	GIT_DIR="/var/lib/cg/vservers/$vserver"
 fi
 ### }}}
