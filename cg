@@ -39,12 +39,12 @@ if [ "$(basename $0)" == "vcg" ]; then
 		echo "ERROR: vcg: missing vserver name." >&2
 		exit 1
 	fi
-	vserver=$1
+	vserver="$1"
 	shift
 	_pkgSetVarsBase
 
-	GIT_WORK_TREE=$VDIR
-	GIT_DIR=/var/lib/cg/vservers/$vserver
+	GIT_WORK_TREE="$VDIR"
+	GIT_DIR="/var/lib/cg/vservers/$vserver"
 fi
 ### }}}
 
@@ -64,18 +64,18 @@ die() {
 ### Functions {{{
 initrepo() {
 	[ -d "$GIT_DIR" ] && die "GIT_DIR=$GIT_DIR already exists."
-	install -d -m770 -gcg $GIT_DIR
+	install -d -m770 -gcg "$GIT_DIR"
 	git init
 	git config --add core.excludesfile /etc/cg/ignore
 	git config --add core.sharedrepository true
 	git config --add core.bare true
-	echo $GIT_DIR > $GIT_WORK_TREE/.cg
-	git add $GIT_WORK_TREE/.cg
+	echo "$GIT_DIR" > "$GIT_WORK_TREE/.cg"
+	git add "$GIT_WORK_TREE/.cg"
 	git commit -m "Initial"
 	git branch deploy
 	git checkout deploy
-	chgrp -R cg $GIT_DIR
-	chmod -R g+rwX $GIT_DIR
+	chgrp -R cg "$GIT_DIR"
+	chmod -R g+rwX "$GIT_DIR"
 }
 ### }}}
 
