@@ -1,0 +1,2 @@
+* update docs
+* get rid of bash dependency - do not rely on util-verserver,
