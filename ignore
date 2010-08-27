@@ -5,5 +5,5 @@
 *.rpmsave
 *.ucf-dist
 etc/shadow
-etc/ssh/ssh_host_?sa_key*
+etc/ssh/ssh_host_*_key*
 etc/ssh/moduli
