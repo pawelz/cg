@@ -1,7 +1,9 @@
 *~
+*.dpkg-dist
 *.new
 *.rpmnew
 *.rpmsave
+*.ucf-dist
 etc/shadow
 etc/ssh/ssh_host_?sa_key*
 etc/ssh/moduli
