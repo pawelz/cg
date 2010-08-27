@@ -4,6 +4,7 @@
 *.rpmnew
 *.rpmsave
 *.ucf-dist
+*.key
 etc/shadow
 etc/ssh/ssh_host_*_key*
 etc/ssh/moduli
