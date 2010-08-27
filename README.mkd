@@ -16,7 +16,7 @@ Remeber that only root has full access to $GIT_WORK_TREE, so you need to be
 root to merge.
 
 	sudo make install
-	sudo make init
+	sudo cg --init
 
 Requirements
 ============
