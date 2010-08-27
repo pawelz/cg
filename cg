@@ -92,6 +92,9 @@ done
 
 ### Parse git command opts and parameters {{{
 GITCOMMAND="$1"
+
+[ "$GITCOMMAND" = "init" ] && die "Don't use init directly. Use --init."
+
 shift
 
 while [ "$1" ]; do
