@@ -50,7 +50,7 @@ die() {
 ### Functions {{{
 initrepo() {
 	[ -d "$GIT_DIR" ] && die "GIT_DIR=$GIT_DIR already exists."
-	install -d -m770 -gcg "$GIT_DIR"
+	mkdir "$GIT_DIR"
 	git init
 	git config --add core.excludesfile /etc/cg/ignore
 	git config --add core.sharedrepository true
@@ -61,7 +61,7 @@ initrepo() {
 	git branch deploy
 	git checkout deploy
 	chgrp -R cg "$GIT_DIR"
-	chmod -R g+rwX "$GIT_DIR"
+	chmod -R ug+rwX,o-rwx "$GIT_DIR"
 }
 
 cginfo() {
