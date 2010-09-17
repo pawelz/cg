@@ -1,5 +1,6 @@
 *~
 *.dpkg-dist
+*.lock
 *.new
 *.rpmnew
 *.rpmsave
