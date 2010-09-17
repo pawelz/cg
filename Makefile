@@ -13,4 +13,4 @@ install: check
 
 upgrade:
 	cat cg > /usr/local/bin/cg
-	cat ignore > /etc/ignore
+	cat ignore > /etc/cg/ignore
