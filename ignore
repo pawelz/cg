@@ -6,9 +6,9 @@
 *.rpmsave
 *.ucf-dist
 *.key
-etc/shadow
-etc/shadow-
 etc/ghadow
 etc/ghadow-
-etc/ssh/ssh_host_*_key*
+etc/shadow
+etc/shadow-
 etc/ssh/moduli
+etc/ssh/ssh_host_*_key*
