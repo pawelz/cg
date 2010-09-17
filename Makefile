@@ -10,3 +10,7 @@ install: check
 	install -d -m750 -gcg /var/lib/cg/vservers
 	ln -s /usr/local/bin/cg /usr/local/bin/vcg
 	install -m640 -gcg ignore /etc/cg/ignore
+
+upgrade:
+	cat cg > /usr/local/bin/cg
+	cat ignore > /etc/ignore
