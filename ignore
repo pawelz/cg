@@ -1,3 +1,4 @@
+# Ignore temporary and backup files. Also ignore private keys.
 *~
 *.dpkg-dist
 *.lock
@@ -6,9 +7,24 @@
 *.rpmsave
 *.ucf-dist
 *.key
+# Ignore private keys and passwords.
 etc/ghadow
 etc/ghadow-
 etc/shadow
 etc/shadow-
 etc/ssh/moduli
 etc/ssh/ssh_host_*_key*
+# These directories should not contain any configuration.
+bin
+dev
+home
+lib
+proc
+sbin
+sys
+tmp
+usr
+!usr/local/etc
+var
+!/var/lib/mysql/mysqld.conf
+!/var/lib/tomcat/conf
