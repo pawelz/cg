@@ -22,7 +22,7 @@ Requirements
 ============
 
 cg does require git-core >= 1.7. That means if you are on debian
-ancient... ekhm... stable, you need to isntall git from backports:
+ancient... ekhm... stable, you need to install git from backports:
 
 	echo 'deb http://www.backports.org/debian lenny-backports main contrib non-free' >> /etc/apt/sources.list
 	apt-get update
